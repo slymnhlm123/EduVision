@@ -105,7 +105,7 @@ body {
 .hero {
     text-align: center;
     padding: 100px 20px;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/hero-image-3.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('resimler/hero-image-3.jpg') no-repeat center center/cover;
     color: white;
     margin-top: 60px;
     min-height: 500px;
