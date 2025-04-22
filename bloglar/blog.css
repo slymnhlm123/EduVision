@@ -180,3 +180,49 @@
         background-color: #f5f1f1;
         margin-top: 40px;
     }
+    .top-bar {
+        background: #fff;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        transition: all 0.3s ease;
+    }
+
+    .top-bar.scrolled {
+        padding: 5px 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .top-bar img {
+        height: 60px;
+        transition: height 0.3s ease;
+        display: block;
+    }
+
+    .top-bar.scrolled img {
+        height: 30px;
+    }
+
+    .top-bar nav {
+        flex-grow: 1;
+        text-align: center;
+        display: block;
+    }
+
+    .top-bar nav a {
+        color: #333;
+        text-decoration: none;
+        margin: 0 15px;
+        font-weight: 600;
+        transition: color 0.3s;
+    }
+
+    .top-bar nav a:hover {
+        color: #ff6f61;
+    }
