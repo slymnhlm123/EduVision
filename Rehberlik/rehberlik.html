@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edu Vision Rehberlik</title>
+  <link rel="stylesheet" href="rehberlik.css" />
+</head>
+<body>
+  <div id="splash">
+    <h1 class="logo">Edu Vision Rehberlik</h1>
+    <p id="description" class="fade-in hidden">Bu platform, kişisel ve sosyal gelişimine katkı sağlamak için tasarlandı.</p>
+    <button id="startButton" class="start-button fade-in hidden" onclick="startApp()">Başla</button>
+  </div>
+
+  <!-- Logo ve Sekme Sistemi -->
+  <div class="header-container hidden" id="headerSection">
+    <img src="../resimler/yeb.png" alt="YEB Logo" class="left-logo" />
+    <div class="tab-container">
+      <div id="klasikTab" class="tab active" onclick="chooseCategory('klasik')">Eğitimsel</div>
+      <div id="egitimselTab" class="tab" onclick="chooseCategory('egitimsel')">Öğretici</div>
+      <div class="tab-indicator" id="tabIndicator"></div>
+    </div>
+    <img src="../resimler/EV%20(2).png" alt="Edu Vision Logo" class="right-logo" />
+  </div>
+
+  <!-- Ana İçerik -->
+  <div id="mainContent" class="hidden">
+    <!-- Klasik İçerik -->
+    <div id="klasikContent" class="hidden">
+      <div class="top-section">
+        <div class="questions">
+          <h3>Sorular</h3>
+          <!-- Soru 1 -->
+          <div class="question-card" id="question0">
+            <span class="question-text">1. Kendinize yeterince zaman ayırabiliyor musunuz?</span>
+            <div class="answer-buttons">
+              <button class="answer-btn" onclick="answerQuestion(0, 'evet')">Evet</button>
+              <button class="answer-btn" onclick="answerQuestion(0, 'hayır')">Hayır</button>
+            </div>
+            <div class="sub-questions hidden" id="subQuestions0">
+              <h4>Ne kadar zaman ayırabiliyorsunuz?</h4>
+              <div class="sub-option" onclick="selectSubOption(0, 0)">Gün içinde kendime özel vakit ayırıyorum</div>
+              <div class="sub-option" onclick="selectSubOption(0, 1)">Bazen fırsat buluyorum</div>
+              <div class="sub-option" onclick="selectSubOption(0, 2)">Genelde kendime zaman ayıramıyorum</div>
+            </div>
+            <div class="button-group">
+              <button class="back-btn hidden" id="back0" onclick="previousQuestion(0)">Geri</button>
+              <button class="next-btn hidden" id="next0" onclick="nextQuestion(0)">Sonraki</button>
+            </div>
+          </div>
+          <!-- Soru 2 -->
+          <div class="question-card hidden" id="question1">
+            <span class="question-text">2. Stresle başa çıkma yöntemleriniz var mı?</span>
+            <div class="answer-buttons">
+              <button class="answer-btn" onclick="answerQuestion(1, 'evet')">Evet</button>
+              <button class="answer-btn" onclick="answerQuestion(1, 'hayır')">Hayır</button>
+            </div>
+            <div class="sub-questions hidden" id="subQuestions1">
+              <h4>Stresliyken nasıl bir çözüm bulursunuz?</h4>
+              <div class="sub-option" onclick="selectSubOption(1, 0)">Stresli anlarda çözüm yolları bulabiliyorum</div>
+              <div class="sub-option" onclick="selectSubOption(1, 1)">Bazen baş etmekte zorlanıyorum</div>
+              <div class="sub-option" onclick="selectSubOption(1, 2)">Stresle nasıl başa çıkacağımı bilemiyorum</div>
+            </div>
+            <div class="button-group">
+              <button class="back-btn" id="back1" onclick="previousQuestion(1)">Geri</button>
+              <button class="next-btn hidden" id="next1" onclick="nextQuestion(1)">Sonraki</button>
+            </div>
+          </div>
+          <!-- Soru 3 -->
+          <div class="question-card hidden" id="question2">
+            <span class="question-text">3. Kendinizi olduğunuz gibi kabul ediyor musunuz?</span>
+            <div class="answer-buttons">
+              <button class="answer-btn" onclick="answerQuestion(2, 'evet')">Evet</button>
+              <button class="answer-btn" onclick="answerQuestion(2, 'hayır')">Hayır</button>
+            </div>
+            <div class="sub-questions hidden" id="subQuestions2">
+              <h4>Kendinizi seviyor musunuz?</h4>
+              <div class="sub-option" onclick="selectSubOption(2, 0)">Kendimi seviyor ve kabul ediyorum</div>
+              <div class="sub-option" onclick="selectSubOption(2, 1)">Bazı yönlerimi kabul ediyorum</div>
+              <div class="sub-option" onclick="selectSubOption(2, 2)">Kendimle ilgili sık sık memnuniyetsizlik yaşıyorum</div>
+            </div>
+            <div class="button-group">
+              <button class="back-btn" id="back2" onclick="previousQuestion(2)">Geri</button>
+              <button class="next-btn hidden" id="next2" onclick="nextQuestion(2)">Sonraki</button>
+            </div>
+          </div>
+          <!-- Soru 4 -->
+          <div class="question-card hidden" id="question3">
+            <span class="question-text">4. Hedeflerinize ulaşmak için plan yapıyor musunuz?</span>
+            <div class="answer-buttons">
+              <button class="answer-btn" onclick="answerQuestion(3, 'evet')">Evet</button>
+              <button class="answer-btn" onclick="answerQuestion(3, 'hayır')">Hayır</button>
+            </div>
+            <div class="sub-questions hidden" id="subQuestions3">
+              <h4>Planlama alışkanlığınız nasıl?</h4>
+              <div class="sub-option" onclick="selectSubOption(3, 0)">Düzenli plan yaparım</div>
+              <div class="sub-option" onclick="selectSubOption(3, 1)">Bazen plan yaparım</div>
+              <div class="sub-option" onclick="selectSubOption(3, 2)">Plan yapmayı sevmiyorum</div>
+            </div>
+            <div class="button-group">
+              <button class="back-btn" id="back3" onclick="previousQuestion(3)">Geri</button>
+              <button class="next-btn hidden" id="next3" onclick="nextQuestion(3)">Sonraki</button>
+            </div>
+          </div>
+          <!-- Soru 5 -->
+          <div class="question-card hidden" id="question4">
+            <span class="question-text">5. Yeni şeyler öğrenmeye açık mısınız?</span>
+            <div class="answer-buttons">
+              <button class="answer-btn" onclick="answerQuestion(4, 'evet')">Evet</button>
+              <button class="answer-btn" onclick="answerQuestion(4, 'hayır')">Hayır</button>
+            </div>
+            <div class="sub-questions hidden" id="subQuestions4">
+              <h4>Ne kadar sık yeni şeyler öğrenirsiniz?</h4>
+              <div class="sub-option" onclick="selectSubOption(4, 0)">Sürekli öğreniyorum</div>
+              <div class="sub-option" onclick="selectSubOption(4, 1)">Ara sıra öğreniyorum</div>
+              <div class="sub-option" onclick="selectSubOption(4, 2)">Pek öğrenmiyorum</div>
+            </div>
+            <div class="button-group">
+              <button class="back-btn" id="back4" onclick="previousQuestion(4)">Geri</button>
+              <button class="next-btn hidden" id="next4" onclick="nextQuestion(4)">Sonraki</button>
+            </div>
+          </div>
+          <!-- Soru 6 -->
+          <div class="question-card hidden" id="question5">
+            <span class="question-text">6. Başkalarıyla iletişim kurmakta zorlanıyor musunuz?</span>
+            <div class="answer-buttons">
+              <button class="answer-btn" onclick="answerQuestion(5, 'evet')">Evet</button>
+              <button class="answer-btn" onclick="answerQuestion(5, 'hayır')">Hayır</button>
+            </div>
+            <div class="sub-questions hidden" id="subQuestions5">
+              <h4>İletişimde ne kadar rahatsınız?</h4>
+              <div class="sub-option" onclick="selectSubOption(5, 0)">Çok rahatım</div>
+              <div class="sub-option" onclick="selectSubOption(5, 1)">Bazen zorlanırım</div>
+              <div class="sub-option" onclick="selectSubOption(5, 2)">Genelde zorlanırım</div>
+            </div>
+            <div class="button-group">
+              <button class="back-btn" id="back5" onclick="previousQuestion(5)">Geri</button>
+              <button class="next-btn hidden" id="next5" onclick="nextQuestion(5)">Sonraki</button>
+            </div>
+          </div>
+          <!-- Soru 7 -->
+          <div class="question-card hidden" id="question6">
+            <span class="question-text">7. Kendinize güveniyor musunuz?</span>
+            <div class="answer-buttons">
+              <button class="answer-btn" onclick="answerQuestion(6, 'evet')">Evet</button>
+              <button class="answer-btn" onclick="answerQuestion(6, 'hayır')">Hayır</button>
+            </div>
+            <div class="sub-questions hidden" id="subQuestions6">
+              <h4>Özgüven seviyeniz nasıl?</h4>
+              <div class="sub-option" onclick="selectSubOption(6, 0)">Yüksek özgüvenim var</div>
+              <div class="sub-option" onclick="selectSubOption(6, 1)">Orta seviyede özgüvenim var</div>
+              <div class="sub-option" onclick="selectSubOption(6, 2)">Özgüvenim düşük</div>
+            </div>
+            <div class="button-group">
+              <button class="back-btn" id="back6" onclick="previousQuestion(6)">Geri</button>
+              <button class="next-btn hidden" id="next6" onclick="nextQuestion(6)">Sonraki</button>
+            </div>
+          </div>
+          <!-- Soru 8 -->
+          <div class="question-card hidden" id="question7">
+            <span class="question-text">8. Hatalarınızdan ders çıkarır mısınız?</span>
+            <div class="answer-buttons">
+              <button class="answer-btn" onclick="answerQuestion(7, 'evet')">Evet</button>
+              <button class="answer-btn" onclick="answerQuestion(7, 'hayır')">Hayır</button>
+            </div>
+            <div class="sub-questions hidden" id="subQuestions7">
+              <h4>Hatalara yaklaşımınız nasıl?</h4>
+              <div class="sub-option" onclick="selectSubOption(7, 0)">Hatalardan öğrenirim</div>
+              <div class="sub-option" onclick="selectSubOption(7, 1)">Bazen öğrenirim</div>
+              <div class="sub-option" onclick="selectSubOption(7, 2)">Hatalara takılırım</div>
+            </div>
+            <div class="button-group">
+              <button class="back-btn" id="back7" onclick="previousQuestion(7)">Geri</button>
+              <button class="next-btn hidden" id="next7" onclick="nextQuestion(7)">Sonraki</button>
+            </div>
+          </div>
+          <!-- Soru 9 -->
+          <div class="question-card hidden" id="question8">
+            <span class="question-text">9. Takım çalışmasına yatkın mısınız?</span>
+            <div class="answer-buttons">
+              <button class="answer-btn" onclick="answerQuestion(8, 'evet')">Evet</button>
+              <button class="answer-btn" onclick="answerQuestion(8, 'hayır')">Hayır</button>
+            </div>
+            <div class="sub-questions hidden" id="subQuestions8">
+              <h4>Takım çalışmasında ne kadar iyisiniz?</h4>
+              <div class="sub-option" onclick="selectSubOption(8, 0)">Çok iyiyim</div>
+              <div class="sub-option" onclick="selectSubOption(8, 1)">Orta seviyedeyim</div>
+              <div class="sub-option" onclick="selectSubOption(8, 2)">Zorlanırım</div>
+            </div>
+            <div class="button-group">
+              <button class="back-btn" id="back8" onclick="previousQuestion(8)">Geri</button>
+              <button class="next-btn hidden" id="next8" onclick="nextQuestion(8)">Sonraki</button>
+            </div>
+          </div>
+          <!-- Soru 10 -->
+          <div class="question-card hidden" id="question9">
+            <span class="question-text">10. Genel olarak kendinizi motive hissediyor musunuz?</span>
+            <div class="answer-buttons">
+              <button class="answer-btn" onclick="answerQuestion(9, 'evet')">Evet</button>
+              <button class="answer-btn" onclick="answerQuestion(9, 'hayır')">Hayır</button>
+            </div>
+            <div class="sub-questions hidden" id="subQuestions9">
+              <h4>Motivasyon seviyeniz nasıl?</h4>
+              <div class="sub-option" onclick="selectSubOption(9, 0)">Çok motiveyim</div>
+              <div class="sub-option" onclick="selectSubOption(9, 1)">Bazen motiveyim</div>
+              <div class="sub-option" onclick="selectSubOption(9, 2)">Genelde motive değilim</div>
+            </div>
+            <div class="button-group">
+              <button class="back-btn" id="back9" onclick="previousQuestion(9)">Geri</button>
+              <button class="suggest-btn hidden" id="suggest9" onclick="suggestVideo('klasik')">Öner</button>
+            </div>
+          </div>
+        </div>
+        <div class="video-area">
+          <h3>Seçilen cevaplara göre önerilen video</h3>
+          <div id="videoSuggestion" class="video-box">
+            <p>Henüz video önerilmedi.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Eğitimsel İçerik -->
+    <div id="egitimselContent" class="hidden">
+      <div class="bottom-section">
+        <div class="topic-select modern-card">
+          <h3>Eğitimsel Rehberlik</h3>
+          <div class="choice-section">
+            <button class="choice-btn" onclick="chooseDevelopment('kişisel')">Kişisel</button>
+            <button class="choice-btn" onclick="chooseDevelopment('sosyal')">Sosyal</button>
+          </div>
+          <!-- Kişisel Alt Soru -->
+          <div class="sub-choice hidden" id="subChoiceKişisel">
+            <h4>Hangi alanda gelişmek istersin?</h4>
+            <div class="sub-option" onclick="selectDevelopmentSubOption('kişisel', 0)">Zaman Yönetimi</div>
+            <div class="sub-option" onclick="selectDevelopmentSubOption('kişisel', 1)">Özgüven</div>
+            <div class="sub-option" onclick="selectDevelopmentSubOption('kişisel', 2)">Stres Yönetimi</div>
+            <button class="suggest-btn" onclick="suggestDevelopmentVideo('kişisel')">Videoları Öner</button>
+          </div>
+          <!-- Sosyal Alt Soru -->
+          <div class="sub-choice hidden" id="subChoiceSosyal">
+            <h4>Sosyal becerilerinden hangisini geliştirmek istersin?</h4>
+            <div class="sub-option" onclick="selectDevelopmentSubOption('sosyal', 0)">İletişim</div>
+            <div class="sub-option" onclick="selectDevelopmentSubOption('sosyal', 1)">Takım Çalışması</div>
+            <div class="sub-option" onclick="selectDevelopmentSubOption('sosyal', 2)">Empati</div>
+            <button class="suggest-btn" onclick="suggestDevelopmentVideo('sosyal')">Videoları Öner</button>
+          </div>
+        </div>
+        <div class="video-area modern-card">
+          <h3>Önerilen Videolar</h3>
+          <div id="devVideo" class="video-box">
+            <p>Henüz video önerilmedi.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="rehberlik.js"></script>
+</body>
+</html>
