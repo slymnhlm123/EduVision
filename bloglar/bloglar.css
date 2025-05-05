@@ -1,50 +1,125 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-  }
+body {
+  background: linear-gradient(to right, #dceefc, #ffffff);
+  color: #333;
+  line-height: 1.6;
+  padding-top: 100px; /* sabit üst çubuğa yer bırakmak için */
+}
 
-  header {
-    background-color: #0066cc;
-    color: white;
-    padding: 2rem 1rem;
-    text-align: center;
-  }
+/* Üst Menü */
+.top-bar {
+  background: #fff;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
 
-  header h1 {
-    font-size: 2.5rem;
-  }
+.top-bar img {
+  height: 60px;
+}
 
-  .container {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
+.top-bar nav {
+  flex-grow: 1;
+  text-align: center;
+}
 
-  article h2 {
-    margin-top: 1.5rem;
-    color: #0066cc;
-  }
+.top-bar nav a {
+  color: #333;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 600;
+  transition: color 0.3s;
+}
 
-  ul {
-    margin: 1rem 0;
-    padding-left: 1.5rem;
-  }
+.top-bar nav a:hover {
+  color: #ff6f61;
+}
 
-  footer {
-    background-color: #eee;
-    text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
-    font-size: 0.9rem;
+/* Sayfa Başlığı */
+header {
+  background-color: #85adf8;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* İçerik Alanı */
+.content {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Her Bölüm */
+.section {
+  margin-bottom: 40px;
+}
+
+.section h2 {
+  color: #1a237e;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.section p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+/* Liste */
+.section ul {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.section li {
+  margin-bottom: 10px;
+  list-style-type: disc;
+}
+
+/* Animasyonlar */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
   }
+}
+
+@keyframes logoFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes logoSlideIn {
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes blogFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes blogCardFadeIn {
+  to {
+    opacity: 1;
+  }
+}
