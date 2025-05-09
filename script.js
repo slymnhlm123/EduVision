@@ -7,24 +7,21 @@ const searchBtn = document.getElementById('search-btn');
 const searchInput = document.getElementById('search-input');
 
 searchBtn.addEventListener('click', function() {
-    // Arama alanı açık mı kontrol et
     if (searchInput.classList.contains('active')) {
-        // Arama alanı açıksa, arama işlemini gerçekleştir ve kapat
         const query = searchInput.value;
         if (query) {
             alert(`"${query}" için arama yapılıyor...`);
+            searchInput.value = '';
         } else {
             alert('Lütfen bir arama terimi girin!');
         }
-        searchInput.classList.remove('active'); // Kapat
+        searchInput.classList.remove('active');
     } else {
-        // Arama alanı kapalıysa, aç
         searchInput.classList.add('active');
-        searchInput.focus(); // Arama alanına odaklan
+        searchInput.focus();
     }
 });
 
-// Arama alanının dışına tıklandığında kapanmasını sağla
 document.addEventListener('click', function(event) {
     if (!searchBtn.contains(event.target) && !searchInput.contains(event.target)) {
         searchInput.classList.remove('active');
@@ -38,4 +35,23 @@ window.addEventListener('scroll', function() {
     } else {
         topBar.classList.remove('scrolled');
     }
+});
+
+// Scroll Animation
+document.addEventListener('DOMContentLoaded', function() {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    elements.forEach(element => {
+        observer.observe(element);
+    });
 });
