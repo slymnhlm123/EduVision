@@ -12,39 +12,67 @@ body {
   padding-top: 100px; /* sabit üst çubuğa yer bırakmak için */
 }
 
-/* Üst Menü */
 .top-bar {
-  background: #fff;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
+    background: #ffffff;
+    padding: 15px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.4s ease;
+}
+
+.top-bar.scrolled {
+    padding: 10px 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.95);
 }
 
 .top-bar img {
-  height: 60px;
+    height: 75px;
+    transition: height 0.4s ease;
+}
+
+.top-bar.scrolled img {
+    height: 45px;
 }
 
 .top-bar nav {
-  flex-grow: 1;
-  text-align: center;
+    flex-grow: 1;
+    text-align: center;
 }
 
 .top-bar nav a {
-  color: #333;
-  text-decoration: none;
-  margin: 0 15px;
-  font-weight: 600;
-  transition: color 0.3s;
+    color: #1e2a44;
+    text-decoration: none;
+    margin: 0 25px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.top-bar nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #4b79e6;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.top-bar nav a:hover::after {
+    width: 100%;
 }
 
 .top-bar nav a:hover {
-  color: #ff6f61;
+    color: #4b79e6;
 }
 
 /* Sayfa Başlığı */
