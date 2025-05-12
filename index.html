@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="steyle(1).css">
 </head>
-<body >
+<body>
 <header class="top-bar">
     <img src="resimler/EV%20(2).png" alt="EduVision Logo">
     <nav>
@@ -16,7 +16,7 @@
         <a href="bloglar/blog.html">Bloglar</a>
         <a href="Rehberlik/rehberlik.html">Rehberlik</a>
         <a href="video/video.html">Videolar</a>
-        <a href="#">İletişim</a>
+        <a href="#contact">İletişim</a>
     </nav>
     <div class="search-bar">
         <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -67,29 +67,89 @@
     <h2>Ekibimiz</h2>
     <div class="team-container">
         <div class="team-card">
-            <img src="resimler/tık.jpg" alt="Abdülhamit TIKI">
-            <h3>Abdülhamit Tıkı</h3>
-            <p>Sınıf: 10EN-2 </p>
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="resimler/tıkı.jpeg" alt="Abdülhamit TIKI">
+                    <h3>Abdülhamit Tıkı</h3>
+                    <p>Sınıf: 10EN-2</p>
+                </div>
+                <div class="flip-card-back">
+                    <h3>Proje Görevi</h3>
+                    <ul>
+                        <li>Ana Sayfa Tasarımı</li>
+                        <li>Ana Sayfa Geliştiricisi</li>
+                        <li>Topluluk Organizatörü</li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="team-card">
-            <img src="resimler/yahya.jpg" alt="Yahya İLBAN">
-            <h3>Halis Yahya İlban</h3>
-            <p>Sınıf: 10EN-2 </p>
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="resimler/yahyaa.jpeg" alt="Yahya İLBAN">
+                    <h3>Halis Yahya İlban</h3>
+                    <p>Sınıf: 10EN-2</p>
+                </div>
+                <div class="flip-card-back">
+                    <h3>Proje Görevi</h3>
+                    <ul>
+                        <li>Blog Yazıcısı</li>
+                        <li>Kamera Arkası Görevlisi</li>
+                        <li>Blog Sayfası Geliştirici</li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="team-card">
-            <img src="resimler/bedirhan.jpeg" alt="Bedirhan Karaman">
-            <h3>Bedirhan Karaman</h3>
-            <p>Sınıf: 10EN-1 </p>
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="resimler/bedirhan.jpeg" alt="Bedirhan Karaman">
+                    <h3>Bedirhan Karaman</h3>
+                    <p>Sınıf: 10EN-1</p>
+                </div>
+                <div class="flip-card-back">
+                    <h3>Proje Görevi</h3>
+                    <ul>
+                        <li>Proje Planlama</li>
+                        <li>Proje Yöneticisi</li>
+                        <li>Rehberlik Sayfası Geliştirici</li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="team-card">
-            <img src="resimler/IMG_20250215_234346.jpg" alt="Hilmi Vural">
-            <h3>Süleyman Hilmi Vural</h3>
-            <p>Sınıf: 10EN-1 </p>
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="resimler/hilmi.jpg" alt="Hilmi Vural">
+                    <h3>Süleyman Hilmi Vural</h3>
+                    <p>Sınıf: 10EN-1</p>
+                </div>
+                <div class="flip-card-back">
+                    <h3>Proje Görevir</h3>
+                    <ul>
+                        <li> WebSite Aktarımı</li>
+                        <li> Web Sayfası Düzenleyici</li>
+                        <li> Video Çekimi</li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="team-card">
-            <img src="resimler/ömer.jpg" alt="Ömer Emre Uysal">
-            <h3>Ömer Emre Uysal</h3>
-            <p>Sınıf: 10EN-1 </p>
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="resimler/ömer.jpg" alt="Ömer Emre Uysal">
+                    <h3>Ömer Emre Uysal</h3>
+                    <p>Sınıf: 10EN-1</p>
+                </div>
+                <div class="flip-card-back">
+                    <h3>Proje Görevi</h3>
+                    <ul>
+                        <li>Video Sayfası Tasarımı</li>
+                        <li>Video Geliştirici</li>
+                        <li>Video Editleyici</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -97,17 +157,20 @@
     <h2>Hakkımızda</h2>
     <p>EduVision, öğrenmenin sınır tanımadığına inanan bir eğitim platformudur. Amacımız; bilgiye ulaşmak isteyen herkese eşit ve kaliteli kaynaklar sunarak bireylerin kendilerini geliştirmesine olanak tanımaktır.</p>
 </section>
-<section class="contact-info animate-on-scroll">
+<section class="contact-info animate-on-scroll" id="contact">
     <h2>İletişim</h2>
     <ul>
         <li><i class="fa-solid fa-map-marker-alt"></i> <strong>Adres:</strong> Yamanevler Mahallesi Küçüksu Caddesi Burak Reis sokağı no : 6/8 Ümraniye/İstanbul</li>
         <li><i class="fa-solid fa-phone"></i> <strong>Telefon:</strong> 0555 055 55 55</li>
-        <li><i class="fa-solid fa-envelope"></i> <strong>E-posta:</strong> <a href="/cdn-cgi/l/email-protection#8ee7e0e8e1ceebeafbf8e7fde7e1e0a0ede1e3"><span class="__cf_email__" data-cfemail="8ee7e0e8e1ceebeafbf8e7fde7e1e0a0ede1e3">[email&#160;protected]</span></a></li>
+        <li><i class="fa-solid fa-envelope"></i> <strong>E-posta:</strong> <a href="/cdn-cgi/l/email-protection#8ce7e0e8e1ccebeafbf8e7fde7e1e0a2efe3e1"><span class="__cf_email__" data-cfemail="8ce7e0e8e1ccebeafbf8e7fde7e1e0a2efe3e1">[email&#160;protected]</span></a></li>
     </ul>
 </section>
 <footer class="footer">
     <p>© 2025 EduVision. Tüm hakları saklıdır.</p>
 </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93d186956e8cdd19',t:'MTc0Njc5NzE1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="script.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93d186956e8cdd19',t:'MTc0Njc5NzE1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93d74926be87b001',t:'MTc0Njg1NzU1NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
 </html>
