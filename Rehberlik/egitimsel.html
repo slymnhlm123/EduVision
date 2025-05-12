@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edu Vision Rehberlik - Eğitimsel Videolar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #4b79e6, #d4e4ff);
+      color: #1e2a44;
+      line-height: 1.8;
+      overflow-x: hidden;
+      background-image: linear-gradient(135deg, rgba(75, 121, 230, 0.2), rgba(212, 228, 255, 0.5)), url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"%3E%3Cpath d="M0 50 Q100 0 200 50 T400 50 V200 H0 Z" fill="none" stroke="%23e0e7ff80" stroke-width="0.5"/%3E%3Ccircle cx="100" cy="100" r="50" fill="none" stroke="%23e0e7ff40" stroke-width="0.3"/%3E%3C/svg%3E');
+      background-size: 400px 400px;
+      padding-top: 180px;
+    }
+
+    .top-bar {
+      background: #ffffff;
+      padding: 15px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.4s ease;
+    }
+
+    .top-bar.scrolled {
+      padding: 10px 40px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .top-bar img {
+      height: 75px;
+      transition: height 0.4s ease;
+    }
+
+    .top-bar.scrolled img {
+      height: 45px;
+    }
+
+    .top-bar nav {
+      flex-grow: 1;
+      text-align: center;
+    }
+
+    .top-bar nav a {
+      color: #1f2937;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: 500;
+      font-size: 1.1rem;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .top-bar nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #8b5cf6;
+      bottom: -5px;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+
+    .top-bar nav a:hover::after {
+      width: 100%;
+    }
+
+    .top-bar nav a:hover {
+      color: #8b5cf6;
+    }
+
+    .video-section {
+      display: flex;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 120px auto 30px;
+      padding: 20px;
+      background: linear-gradient(135deg, #f9fafb 0%, #e5e7eb 100%);
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .video-list {
+      flex: 1;
+      max-width: 300px;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .video-list h3 {
+      color: #1f2937;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .video-btn {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 10px;
+      background: linear-gradient(45deg, #e5e7eb, #f3f4f6);
+      color: #1f2937;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .video-btn i {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+
+    .video-btn:hover {
+      background: linear-gradient(45deg, #d1d5db, #e5e7eb);
+      transform: translateY(-2px);
+    }
+
+    .video-btn.active {
+      background: linear-gradient(45deg, #8b5cf6, #a78bfa);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+    }
+
+    .video-player {
+      flex: 2;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .video-player h3 {
+      color: #1f2937;
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .video-panel {
+      width: 100%;
+      height: 400px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .video-panel iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-panel p {
+      text-align: center;
+      color: #6b7280;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .video-list, .video-player {
+      animation: slideIn 0.5s ease forwards;
+    }
+  </style>
+</head>
+<body>
+<header class="top-bar">
+  <img src="../resimler/EV (2).png" alt="EduVision Logo">
+  <nav>
+    <a href="../index.html">Ana Sayfa</a>
+    <a href="../bloglar/blog.html">Bloglar</a>
+    <a href="../Rehberlik/rehberlik.html">Rehberlik</a>
+    <a href="../video/video.html">Videolar</a>
+    <a href="#">İletişim</a>
+  </nav>
+</header>
+
+<div class="video-section">
+  <div class="video-list">
+    <h3 id="videoListTitle">Videolar</h3>
+    <div id="videoButtons"></div>
+  </div>
+  <div class="video-player">
+    <h3 id="videoPlayerTitle">Video İzle</h3>
+    <div class="video-panel" id="videoPanel">
+      <p>Video yükleniyor...</p>
+    </div>
+  </div>
+</div>
+
+<script src="egitimsel.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93e9e0f94af653c2',t:'MTc0NzA1MjUxNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
