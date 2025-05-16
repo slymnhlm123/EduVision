@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destek ve Geri Bildirim</title>
+  <link rel="stylesheet" href="destek.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<!-- Top Bar -->
+<div class="top-bar">
+  <img src="/resimler/EV%20(2).png" alt="Logo">
+    <nav>
+      <a href="../index.html">Ana Sayfa</a>
+      <a href="/bloglar/blog.html">Bloglar</a>
+      <a href="/video/video.html">Videolar</a>
+      <a href="/Rehberlik/arayuz.html">Rehberlik</a>
+      <a href="/Yazılım/yazılım.html">Dersler</a>
+      <a href="/Destek/destek.html">Destek</a>
+    </nav>
+  <div class="search-bar">
+    <input type="text" placeholder="Ara...">
+    <button id="search-btn"><i class="fas fa-search"></i></button>
+  </div>
+</div>
+
+<!-- Existing Content -->
+<div class="container">
+  <h1>Destek ve Geri Bildirim</h1>
+  <form id="commentForm" class="comment-form">
+    <input type="text" id="name" placeholder="Adınız" required>
+    <textarea id="comment" placeholder="Yorumunuz" required></textarea>
+    <textarea id="contribution" placeholder="Katkılarınız" required></textarea>
+    <textarea id="extra" placeholder="Eklemek İstedikleriniz"></textarea>
+    <button type="submit" id="button">Gönder</button>
+  </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("YOUR_PUBLIC_KEY"); // EmailJS Public Key
+  })();
+</script>
+<script src="destek.js"></script>
+<script>
+  // Search bar functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchBtn = document.getElementById('search-btn');
+    const searchInput = document.querySelector('.search-bar input');
+
+    searchBtn.addEventListener('click', () => {
+      searchInput.classList.toggle('active');
+      if (searchInput.classList.contains('active')) {
+        searchInput.focus();
+      } else {
+        searchInput.value = '';
+      }
+    });
+
+    // Scroll effect for top bar
+    window.addEventListener('scroll', () => {
+      const topBar = document.querySelector('.top-bar');
+      if (window.scrollY > 50) {
+        topBar.classList.add('scrolled');
+      } else {
+        topBar.classList.remove('scrolled');
+      }
+    });
+  });
+</script>
+</body>
+</html>
