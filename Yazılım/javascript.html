@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Ders Videoları</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+<div class="top-bar">
+  <img src="/resimler/EV%20(2).png" alt="Logo">
+  <nav>
+    <a href="../index.html">Ana Sayfa</a>
+    <a href="/bloglar/blog.html">Bloglar</a>
+    <a href="/video/video.html">Videolar</a>
+    <a href="/Rehberlik/arayuz.html">Rehberlik</a>
+    <a href="/Yazılım/yazılım.html">Dersler</a>
+    <a href="/Destek/destek.html"></a>
+  </nav>
+  <div class="search-bar">
+    <input type="text" placeholder="Ders ara...">
+    <button id="search-btn"><i class="fas fa-search"></i></button>
+  </div>
+</div>
+
+<div class="content">
+  <header>
+    <h1>📘 JavaScript Ders Videoları</h1>
+    <p>JavaScript ile dinamik web geliştirme bölüm bölüm öğrenin!</p>
+  </header>
+
+  <div class="progress-bar">
+    <div class="progress" id="progress"></div>
+  </div>
+  <p class="progress-text">İlerleme: <span id="progress-percent">0%</span></p>
+
+  <div class="video-section">
+    <h2>Bölüm 1: JavaScript'e Giriş</h2>
+    <div class="video-list">
+      <div class="video-item" data-video-id="1">
+        <iframe src="https://www.youtube.com/embed/W6NZfCO5SIk" frameborder="0" allowfullscreen></iframe>
+        <p>JavaScript Nedir ve Kullanımı</p>
+      </div>
+      <div class="video-item" data-video-id="2">
+        <iframe src="https://www.youtube.com/embed/hdI2bqOjy3c" frameborder="0" allowfullscreen></iframe>
+        <p>Değişkenler ve Veri Tipleri</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="video-section">
+    <h2>Bölüm 2: Fonksiyonlar</h2>
+    <div class="video-list">
+      <div class="video-item" data-video-id="3">
+        <iframe src="https://www.youtube.com/embed/x7WJEmxNlEs" frameborder="0" allowfullscreen></iframe>
+        <p>Fonksiyon Tanımlama</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 Yazılım Dersleri </p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
