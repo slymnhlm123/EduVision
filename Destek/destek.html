@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destek Bölümü</title>
+  <link rel="stylesheet" href="destek.css">
+</head>
+<body>
+<div class="container">
+  <h1>Destek ve Geri Bildirim</h1>
+  <form class="comment-form" id="commentForm">
+    <input type="text" id="name" name="user_name" placeholder="Adınız" required>
+    <textarea id="comment" name="user_comment" placeholder="Yorumunuz nedir?" required></textarea>
+    <textarea id="contribution" name="user_contribution" placeholder="Bu proje size ne kattı?" required></textarea>
+    <textarea id="extra" name="user_extra" placeholder="Eklemek istediğiniz başka bir şey var mı?"></textarea>
+    <button type="submit" id="button">Gönder</button>
+  </form>
+</div>
+
+<!-- EmailJS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+  emailjs.init('HMNUk2dkTAHytaPDo');
+</script>
+
+<script src="destek.js"></script>
+</body>
+</html>
