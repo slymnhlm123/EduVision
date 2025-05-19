@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edu Vision Rehberlik - Ana Menü</title>
+  <link rel="stylesheet" href="stil.css" />
+  <style>
+    .top-bar {
+      background: #ffffff;
+      padding: 15px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.4s ease;
+    }
+
+    .top-bar.scrolled {
+      padding: 10px 40px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .top-bar img {
+      height: 75px;
+      transition: height 0.4s ease;
+    }
+
+    .top-bar.scrolled img {
+      height: 45px;
+    }
+
+    .top-bar nav {
+      flex-grow: 1;
+      text-align: center;
+    }
+
+    .top-bar nav a {
+      color: #1e2a44;
+      text-decoration: none;
+      margin: 0 25px;
+      font-weight: 500;
+      font-size: 1.1rem;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .top-bar nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #4b79e6;
+      bottom: -5px;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+
+    .top-bar nav a:hover::after {
+      width: 100%;
+    }
+
+    .top-bar nav a:hover {
+      color: #4b79e6;
+    }
+
+    body {
+      background: linear-gradient(135deg, #4b79e6, #d4e4ff);
+      color: #1e2a44;
+      line-height: 1.8;
+      overflow-x: hidden;
+      background-image: linear-gradient(135deg, rgba(75, 121, 230, 0.2), rgba(212, 228, 255, 0.5)), url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"%3E%3Cpath d="M0 50 Q100 0 200 50 T400 50 V200 H0 Z" fill="none" stroke="%23e0e7ff80" stroke-width="0.5"/%3E%3Ccircle cx="100" cy="100" r="50" fill="none" stroke="%23e0e7ff40" stroke-width="0.3"/%3E%3C/svg%3E');
+      background-size: 400px 400px;
+      padding-top: 180px;
+    }
+  </style>
+</head>
+<body>
+<header class="top-bar">
+  <img src="../resimler/EV%20(2).png" alt="EduVision Logo">
+  <nav>
+    <a href="../index.html">Ana Sayfa</a>
+    <a href="/bloglar/blog.html">Bloglar</a>
+    <a href="/video/video.html">Videolar</a>
+    <a href="/Rehberlik/arayuz.html">Rehberlik</a>
+    <a href="/Yazılım/yazılım.html">Dersler</a>
+    <a href="/Destek/destek.html">Destek</a>
+  </nav>
+</header>
+
+<div id="mainContent" style="margin-top: 120px;"> <!-- Top bar yüksekliği için boşluk -->
+  <div class="tab-container">
+    <div id="egitimselTab" class="tab active" onclick="chooseCategory('egitimsel')">Eğitimsel</div>
+    <div id="ogreticiTab" class="tab" onclick="chooseCategory('ogretici')">Öğretici</div>
+    <div class="tab-indicator" id="tabIndicator"></div>
+  </div>
+
+  <!-- Eğitimsel İçerik -->
+  <div id="egitimselContent">
+    <div class="modern-card">
+      <h3>Seçenekler</h3>
+      <div class="choice-section">
+        <button class="choice-btn" onclick="chooseDevelopment('kisisel')">Kişisel Gelişim</button>
+        <button class="choice-btn" onclick="chooseDevelopment('sosyal')">Sosyal Gelişim</button>
+      </div>
+      <div class="button-group">
+        <button class="suggest-btn hidden" id="suggestEgitimsel" onclick="goToVideoPage('egitimsel')">Öner</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Öğretici Sorular -->
+  <div id="ogreticiContent" class="hidden">
+    <div class="questions">
+      <h3>Sorular</h3>
+      <!-- Soru 1 -->
+      <div class="question-card" id="question0">
+        <span class="question-text">1. Kendinizi sık sık stresli hisseder misiniz?</span>
+        <div class="answer-buttons">
+          <button class="answer-btn" onclick="answerQuestion(0, 'evet')">Evet</button>
+          <button class="answer-btn" onclick="answerQuestion(0, 'hayır')">Hayır</button>
+        </div>
+        <div class="sub-questions hidden" id="subQuestions0">
+          <h4>Stres Seviyenizi Nasıl Tanımlarsınız?</h4>
+          <div class="sub-option" onclick="selectSubOption(0, 0)">Nadiren stres yaşarım</div>
+          <div class="sub-option" onclick="selectSubOption(0, 1)">Sık sık stres yaşarım</div>
+          <div class="sub-option" onclick="selectSubOption(0, 2)">Yoğun ve sürekli stres altındayım</div>
+        </div>
+        <div class="button-group">
+          <button class="back-btn" id="back0" onclick="previousQuestion(0)">Geri</button>
+          <button class="next-btn" id="next0" onclick="nextQuestion(0)">Sonraki</button>
+        </div>
+      </div>
+      <!-- Soru 2 -->
+      <div class="question-card hidden" id="question1">
+        <span class="question-text">2. Karar verirken zorlandığınız olur mu?</span>
+        <div class="answer-buttons">
+          <button class="answer-btn" onclick="answerQuestion(1, 'evet')">Evet</button>
+          <button class="answer-btn" onclick="answerQuestion(1, 'hayır')">Hayır</button>
+        </div>
+        <div class="sub-questions hidden" id="subQuestions1">
+          <h4>Karar Verme Güçlüğünüz Ne Düzeyde?</h4>
+          <div class="sub-option" onclick="selectSubOption(1, 0)">Küçük kararları alırken tereddüt ederim</div>
+          <div class="sub-option" onclick="selectSubOption(1, 1)">Hem küçük hem büyük kararlar beni zorlar</div>
+          <div class="sub-option" onclick="selectSubOption(1, 2)">Kararsızlık günlük yaşamımı etkiliyor</div>
+        </div>
+        <div class="button-group">
+          <button class="back-btn" id="back1" onclick="previousQuestion(1)">Geri</button>
+          <button class="next-btn" id="next1" onclick="nextQuestion(1)">Sonraki</button>
+        </div>
+      </div>
+      <!-- Soru 3 -->
+      <div class="question-card hidden" id="question2">
+        <span class="question-text">3. Kendinizi yalnız hissettiğiniz zamanlar oluyor mu?</span>
+        <div class="answer-buttons">
+          <button class="answer-btn" onclick="answerQuestion(2, 'evet')">Evet</button>
+          <button class="answer-btn" onclick="answerQuestion(2, 'hayır')">Hayır</button>
+        </div>
+        <div class="sub-questions hidden" id="subQuestions2">
+          <h4>Yalnızlık Hissinizin Derinliği Nedir?</h4>
+          <div class="sub-option" onclick="selectSubOption(2, 0)">Ara sıra yalnız hissederim</div>
+          <div class="sub-option" onclick="selectSubOption(2, 1)">Çoğu zaman yalnızlık hissederim</div>
+          <div class="sub-option" onclick="selectSubOption(2, 2)">Yalnızlık duygusu hayatımı derinden etkiliyor</div>
+        </div>
+        <div class="button-group">
+          <button class="back-btn" id="back2" onclick="previousQuestion(2)">Geri</button>
+          <button class="next-btn" id="next2" onclick="nextQuestion(2)">Sonraki</button>
+        </div>
+      </div>
+      <!-- Soru 4 -->
+      <div class="question-card hidden" id="question3">
+        <span class="question-text">4. Kendinize güvenmekte zorlandığınız olur mu?</span>
+        <div class="answer-buttons">
+          <button class="answer-btn" onclick="answerQuestion(3, 'evet')">Evet</button>
+          <button class="answer-btn" onclick="answerQuestion(3, 'hayır')">Hayır</button>
+        </div>
+        <div class="sub-questions hidden" id="subQuestions3">
+          <h4>Özgüven Seviyenizi Nasıl Değerlendirirsiniz?</h4>
+          <div class="sub-option" onclick="selectSubOption(3, 0)">Bazen kendimden şüphe duyarım</div>
+          <div class="sub-option" onclick="selectSubOption(3, 1)">Güvensizlik çoğu zaman kendimi geri çekmeme neden olur</div>
+          <div class="sub-option" onclick="selectSubOption(3, 2)">Özgüven eksikliği birçok alanda beni kısıtlıyor</div>
+        </div>
+        <div class="button-group">
+          <button class="back-btn" id="back3" onclick="previousQuestion(3)">Geri</button>
+          <button class="next-btn" id="next3" onclick="nextQuestion(3)">Sonraki</button>
+        </div>
+      </div>
+      <!-- Soru 5 -->
+      <div class="question-card hidden" id="question4">
+        <span class="question-text">5. Başkalarının düşüncelerine fazlaca önem verir misiniz?</span>
+        <div class="answer-buttons">
+          <button class="answer-btn" onclick="answerQuestion(4, 'evet')">Evet</button>
+          <button class="answer-btn" onclick="answerQuestion(4, 'hayır')">Hayır</button>
+        </div>
+        <div class="sub-questions hidden" id="subQuestions4">
+          <h4>Dış Etkilere Ne Kadar Açık Hissediyorsunuz?</h4>
+          <div class="sub-option" onclick="selectSubOption(4, 0)">Zaman zaman etkilenirim</div>
+          <div class="sub-option" onclick="selectSubOption(4, 1)">Genellikle kararlarımı etkiler</div>
+          <div class="sub-option" onclick="selectSubOption(4, 2)">Hayatımı şekillendirirken başkalarının fikirleri belirleyici oluyor</div>
+        </div>
+        <div class="button-group">
+          <button class="back-btn" id="back4" onclick="previousQuestion(4)">Geri</button>
+          <button class="next-btn" id="next4" onclick="nextQuestion(4)">Sonraki</button>
+        </div>
+      </div>
+      <!-- Soru 6 -->
+      <div class="question-card hidden" id="question5">
+        <span class="question-text">6. Kendinizi baskı altında hissettiğiniz ortamlar oluyor mu?</span>
+        <div class="answer-buttons">
+          <button class="answer-btn" onclick="answerQuestion(5, 'evet')">Evet</button>
+          <button class="answer-btn" onclick="answerQuestion(5, 'hayır')">Hayır</button>
+        </div>
+        <div class="sub-questions hidden" id="subQuestions5">
+          <h4>Baskı Algınızı Nasıl Açıklarsınız?</h4>
+          <div class="sub-option" onclick="selectSubOption(5, 0)">Belli durumlarda baskı hissederim</div>
+          <div class="sub-option" onclick="selectSubOption(5, 1)">Çalışma veya sosyal ortamlarda genelde baskı altındayım</div>
+          <div class="sub-option" onclick="selectSubOption(5, 2)"> Sürekli baskı altında yaşadığımı hissediyorum</div>
+        </div>
+        <div class="button-group">
+          <button class="back-btn" id="back5" onclick="previousQuestion(5)">Geri</button>
+          <button class="next-btn" id="next5" onclick="nextQuestion(5)">Sonraki</button>
+        </div>
+      </div>
+      <!-- Soru 7 -->
+      <div class="question-card hidden" id="question6">
+        <span class="question-text">7. Duygularınızı ifade etmekte zorlanır mısınız?</span>
+        <div class="answer-buttons">
+          <button class="answer-btn" onclick="answerQuestion(6, 'evet')">Evet</button>
+          <button class="answer-btn" onclick="answerQuestion(6, 'hayır')">Hayır</button>
+        </div>
+        <div class="sub-questions hidden" id="subQuestions6">
+          <h4>Duygularınızı Açıklama Güçlüğünüz Ne Düzeyde?</h4>
+          <div class="sub-option" onclick="selectSubOption(6, 0)">Zaman zaman kendimi ifade etmekte güçlük çekerim</div>
+          <div class="sub-option" onclick="selectSubOption(6, 1)">Duygularımı açmakta genelde zorlanırım</div>
+          <div class="sub-option" onclick="selectSubOption(6, 2)">İç dünyamı paylaşmak benim için çok zordur</div>
+        </div>
+        <div class="button-group">
+          <button class="back-btn" id="back6" onclick="previousQuestion(6)">Geri</button>
+          <button class="next-btn" id="next6" onclick="nextQuestion(6)">Sonraki</button>
+        </div>
+      </div>
+      <!-- Soru 8 -->
+      <div class="question-card hidden" id="question7">
+        <span class="question-text">8. Zihninizi susturmakta zorlanıyor musunuz?</span>
+        <div class="answer-buttons">
+          <button class="answer-btn" onclick="answerQuestion(7, 'evet')">Evet</button>
+          <button class="answer-btn" onclick="answerQuestion(7, 'hayır')">Hayır</button>
+        </div>
+        <div class="sub-questions hidden" id="subQuestions7">
+          <h4>Zihinsel Yoğunluğunuzun Seviyesi Nedir?</h4>
+          <div class="sub-option" onclick="selectSubOption(7, 0)">Ara sıra düşüncelere dalarım</div>
+          <div class="sub-option" onclick="selectSubOption(7, 1)">Zihnim sürekli aktif ve yorucu</div>
+          <div class="sub-option" onclick="selectSubOption(7, 2)">Hiç durmayan bir iç sesim var</div>
+        </div>
+        <div class="button-group">
+          <button class="back-btn" id="back7" onclick="previousQuestion(7)">Geri</button>
+          <button class="next-btn" id="next7" onclick="nextQuestion(7)">Sonraki</button>
+        </div>
+      </div>
+      <!-- Soru 9 -->
+      <div class="question-card hidden" id="question8">
+        <span class="question-text">9. Kendinizi yeterince başarılı hissetmiyor musunuz?</span>
+        <div class="answer-buttons">
+          <button class="answer-btn" onclick="answerQuestion(8, 'evet')">Evet</button>
+          <button class="answer-btn" onclick="answerQuestion(8, 'hayır')">Hayır</button>
+        </div>
+        <div class="sub-questions hidden" id="subQuestions8">
+          <h4>Başarı Algınızı Nasıl Tanımlarsınız?</h4>
+          <div class="sub-option" onclick="selectSubOption(8, 0)">Bazen yeterli hissedemem</div>
+          <div class="sub-option" onclick="selectSubOption(8, 1)">Çabalarım çoğu zaman yetersiz geliyor</div>
+          <div class="sub-option" onclick="selectSubOption(8, 2)">Hiçbir zaman tam anlamıyla başarılı hissetmedim</div>
+        </div>
+        <div class="button-group">
+          <button class="back-btn" id="back8" onclick="previousQuestion(8)">Geri</button>
+          <button class="next-btn" id="next8" onclick="nextQuestion(8)">Sonraki</button>
+        </div>
+      </div>
+      <!-- Soru 10 -->
+      <div class="question-card hidden" id="question9">
+        <span class="question-text">10. Geçmişte yaşadığınız olumsuz deneyimler sizi hâlâ etkiliyor mu?</span>
+        <div class="answer-buttons">
+          <button class="answer-btn" onclick="answerQuestion(9, 'evet')">Evet</button>
+          <button class="answer-btn" onclick="answerQuestion(9, 'hayır')">Hayır</button>
+        </div>
+        <div class="sub-questions hidden" id="subQuestions9">
+          <h4>Geçmişin Etkisi Ne Kadar Derin?</h4>
+          <div class="sub-option" onclick="selectSubOption(9, 0)">Belli anlarda aklıma geliyor</div>
+          <div class="sub-option" onclick="selectSubOption(9, 1)">Zaman zaman ruh halimi etkiliyor</div>
+          <div class="sub-option" onclick="selectSubOption(9, 2)">Hâlâ üzerimde derin etkileri var</div>
+        </div>
+        <div class="button-group">
+          <button class="back-btn" id="back9" onclick="previousQuestion(9)">Geri</button>
+          <button class="suggest-btn hidden" id="suggest9" onclick="goToVideoPage('ogretici')">Öner</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="islev.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93e9e0f7bb9744e4',t:'MTc0NzA1MjUxNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
